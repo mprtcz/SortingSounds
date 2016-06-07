@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="389.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Sorting method:" />
+                        <ChoiceBox fx:id="sortingChoiceBox" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="Latency [ms]" />
+                        <Slider fx:id="speedSlider" blockIncrement="1.0" max="200.0" min="1.0" minorTickCount="2" showTickLabels="true" showTickMarks="true" value="1.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Slider>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="label" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="Sample Size:" />
+                        <ChoiceBox fx:id="sizeChooser" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label />
+                        <Button fx:id="startButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onStartButtonCLicked" text="Start" />
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Canvas fx:id="canvas" height="600.0" nodeOrientation="INHERIT" width="600.0" />
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

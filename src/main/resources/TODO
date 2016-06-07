@@ -1,0 +1,20 @@
+1. Ilość wywołań kąparatora //done
+2. Labelki na suwaku szybkości //~done
+3. Pole rysowania żeby wypełniało całe okno //  ??
+4. Szerokość słupków generowana dynamicznie //done
+5. Wyrównanie kontrolek do lewego górnego rogu //done
+6. Suwak w drugą stronę //~done
+7. Sprawdzanie warunku dla komparatora dla >0 i <0 //done
+8. Poprawienie bubble sorta // ~done
+9. enum // done
+
+2nd round
+
+1. label z wyświetlaną ilością porównań //done
+2. wywołanie standardowego arrays.sort // done
+3. poprawa formatowania kodu //~~done
+4. dźwięki //nn
+5. poprawa kolorowania prostokątów //done
+6. logger zamiast souta //done
+7. poprawa nazw zmiennych (np przy compare) //done?
+8. lambdy //~done

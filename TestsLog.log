@@ -1,0 +1,18 @@
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest bubbleSorterTest
+FINE: Sorter: class com.mprtcz.sortingSounds.BubbleSorter
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest bubbleSorterTest
+FINE: Array to sort: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest bubbleSorterTest
+FINE: Array after sort: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest QuickSorterTest
+FINE: Array to sort: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest QuickSorterTest
+FINE: Sorter: class com.mprtcz.sortingSounds.QuickSorter
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest QuickSorterTest
+FINE: Array after sort: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest ArraySorterTest
+FINE: Array to sort: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest ArraySorterTest
+FINE: Sorter: class com.mprtcz.sortingSounds.ArraySorter
+maj 01, 2016 11:31:50 AM com.mprtcz.sortingSounds.SorterTest ArraySorterTest
+FINE: Array after sort: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

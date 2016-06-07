@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="737.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mprtcz.sortingSounds.Controller">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Sorting method:" />
+                  <ChoiceBox fx:id="sortingChoiceBox" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Latency [ms]" />
+                  <Slider fx:id="speedSlider" blockIncrement="1.0" majorTickUnit="999.0" max="1000.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="50.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Slider>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="label" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Sample Size:" />
+                  <ChoiceBox fx:id="sizeChooser" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label />
+                  <Button fx:id="startButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onStartButtonCLicked" text="Start" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label />
+                  <CheckBox fx:id="playSoundCheckbox" alignment="TOP_LEFT" mnemonicParsing="false" text="Play Sound" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <Canvas fx:id="canvas" height="600.0" nodeOrientation="INHERIT" width="600.0">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></Canvas>
+   </center>
+   <opaqueInsets>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </opaqueInsets>
+   <bottom>
+      <Label fx:id="callsLabel" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
