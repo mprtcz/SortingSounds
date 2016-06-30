@@ -15,6 +15,6 @@ An example of the application running Bubble sort algorythm:
 Quicksort:
 ![.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
 
-Array sort:
+Dual-Pivot Quicksort implemented in Java api as Arrays.sort() method:
 ![.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
 
