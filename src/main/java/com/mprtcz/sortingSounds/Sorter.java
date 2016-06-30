@@ -114,7 +114,7 @@ class ArraySorter implements Sorter {
 
     @Override
     public void sort(Integer[] array, Comparator<Integer> comparator) {
-        logger.log(level, "Starting ArraySort");
+        logger.log(level, "Starting Dual-Pivot Quicksort");
         Arrays.sort(array, comparator);
         comparator.compare(array.length - 1, array.length - 2);
     }
