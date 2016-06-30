@@ -5,10 +5,10 @@ An example of the application running Bubble sort algorythm:
 ![.gif, 1MB](https://media.giphy.com/media/l41YAOAbwr23GKhRm/giphy.gif)
 
 Quicksort:
-[.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
+![.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
 
 Array sort:
-[.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
+![.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
 
 The application contains 4 controls and a button responsible for the start of visualization.
 * Sorting Method ChoiceBox allowing to choose between different sorting algorythms to visualize
