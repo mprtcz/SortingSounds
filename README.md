@@ -2,7 +2,7 @@
 Java application which visualize three different sorting algorythms: bubble sort, quicksort and array sort, optionally playing a different tone to every comparison it makes while sorting.
 
 An example of the application running Bubble sort algorythm:
-[.gif, 1MB](https://media.giphy.com/media/l41YAOAbwr23GKhRm/giphy.gif)
+![.gif, 1MB](https://media.giphy.com/media/l41YAOAbwr23GKhRm/giphy.gif)
 
 Quicksort:
 [.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
