@@ -10,7 +10,7 @@ Quicksort:
 Array sort:
 [.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
 
-The application contains 5 controls and a button responsible for sorting start.
+The application contains 4 controls and a button responsible for sorting start.
 * Sorting Method ChoiceBox allowing to choose between different sorting algorythmsto visualize
 * Latency Slider which can be manipulated during runtime allowing the user to change the speed of the animation
 * Sample size ChoiceBox which lets the user choose different sizes of an array to be sorted
