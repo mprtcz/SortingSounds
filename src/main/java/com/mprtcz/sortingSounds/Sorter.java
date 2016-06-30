@@ -16,7 +16,7 @@ interface Sorter {
     enum SortType {
         BUBBLE_SORT("Bubble Sort"),
         QUICKSORT("Quicksort"),
-        ARRAYSORT("Array Sort");
+        ARRAYSORT("Dual-Pivot Quicksort");
 
         private String value;
 
