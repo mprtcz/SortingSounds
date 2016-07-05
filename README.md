@@ -30,5 +30,5 @@ To generate a jar file of this project using maven:
   
   3. To run generated jar file enter:
   
-  `java -jar {ProjectName}.jar`
+  `java -jar SortingSounds.jar`
 
