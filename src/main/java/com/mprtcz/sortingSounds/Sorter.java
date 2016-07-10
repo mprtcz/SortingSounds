@@ -52,7 +52,7 @@ class BubbleSorter implements Sorter {
     @Override
     public void sort(Integer[] array, Comparator<Integer> comparator) {
         logger.log(level, "Starting bubblesort");
-        boolean changed = false;
+        boolean changed;
         do {
             changed = false;
             for (int i = 0; i < array.length - 1; i++) {
