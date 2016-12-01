@@ -9,15 +9,23 @@ The application contains 4 controls and a button responsible for the start of vi
 
 In the botton there is a label which informs the user about how many comparisons chosen algorithm had made during sorting. 
 
-An example of the application running Bubble sort algorithm:
+
+**An example of the application running Bubble sort algorithm:**
+
 ![.gif, 1MB](https://media.giphy.com/media/l41YAOAbwr23GKhRm/giphy.gif)
 
-Quicksort:
+
+**Quicksort:**
+
 ![.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
 
-Dual-Pivot Quicksort implemented in Java api as Arrays.sort() method:
+
+**Dual-Pivot Quicksort implemented in Java api as Arrays.sort() method:**
+
 ![.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
 
+
+---
 
 To generate a jar file of this project using maven:
   1. after cloning the project, open terminal in the project's main directory and type:
