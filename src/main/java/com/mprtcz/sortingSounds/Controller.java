@@ -56,7 +56,7 @@ public class Controller {
 
         myComparator.setPlaySound(playSoundCheckbox.isSelected());
 
-        Sorter sorter = Sorter.getInstance(sortingChoiceBox.getValue());
+        Sorter sorter = Sorter.sorterFactory(sortingChoiceBox.getValue());
         sorter.sort(array, myComparator);
 
         startButton.setDisable(false);

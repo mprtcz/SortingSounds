@@ -30,8 +30,7 @@ interface Sorter {
         }
     }
 
-    static Sorter getInstance(SortType sortType) {
-
+    static Sorter sorterFactory(SortType sortType) {
         switch (sortType) {
             case BUBBLE_SORT:
                 return new BubbleSorter();

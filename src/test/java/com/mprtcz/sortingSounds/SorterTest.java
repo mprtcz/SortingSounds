@@ -38,7 +38,7 @@ public class SorterTest {
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
         myComparator.setArray(arrayToSort);
         myComparator.setLabel(new Label());
-        Sorter sorter = Sorter.getInstance(Sorter.SortType.BUBBLE_SORT);
+        Sorter sorter = Sorter.sorterFactory(Sorter.SortType.BUBBLE_SORT);
         logger.log(level, "Sorter: " +sorter.getClass());
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         sorter.sort(arrayToSort, myComparator);
@@ -57,7 +57,7 @@ public class SorterTest {
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
         myComparator.setArray(arrayToSort);
         myComparator.setLabel(new Label());
-        Sorter sorter = Sorter.getInstance(Sorter.SortType.QUICK_SORT);
+        Sorter sorter = Sorter.sorterFactory(Sorter.SortType.QUICK_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
         sorter.sort(arrayToSort, myComparator);
@@ -76,7 +76,7 @@ public class SorterTest {
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
         myComparator.setArray(arrayToSort);
         myComparator.setLabel(new Label());
-        Sorter sorter = Sorter.getInstance(Sorter.SortType.ARRAY_SORT);
+        Sorter sorter = Sorter.sorterFactory(Sorter.SortType.ARRAY_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
         sorter.sort(arrayToSort, myComparator);
