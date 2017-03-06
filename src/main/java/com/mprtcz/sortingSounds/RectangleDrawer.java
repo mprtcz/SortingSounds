@@ -1,6 +1,7 @@
 package com.mprtcz.sortingSounds;
 
 import com.mprtcz.sortingSounds.MyLogger.MyLogger;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -19,41 +20,38 @@ class RectangleDrawer {
     private double yPosition;
     private double width;
     private double height;
-    private int amount;
     private Integer[] array;
+    private GraphicsContext graphicsContext;
+    private Canvas canvas;
 
-    RectangleDrawer(Integer[] array) {
+    RectangleDrawer(Integer[] array, Canvas canvas) {
         logger.log(level, "");
+        this.canvas = canvas;
+        this.graphicsContext = canvas.getGraphicsContext2D();
         this.array = array;
-        this.amount = array.length;
-        int greatestNumber = array[0];
-
-        for (int i : array) {
-            if (i > greatestNumber)
-                greatestNumber = i;
-        }
+        calculateCanvasHeightAndWidth();
     }
 
-    void setCanvasHeightAndWidth(double canvasHeight, double canvasWidth) {
+    private void calculateCanvasHeightAndWidth() {
         logger.log(level, "");
-        this.height = canvasHeight / array.length;
-        this.width = canvasWidth / array.length;
+        this.height = canvas.getHeight() / array.length;
+        this.width = canvas.getWidth() / array.length;
         this.yPosition = array.length * height;
         this.xPosition = width;
     }
 
-    void drawArrayWithComparedRectangles(GraphicsContext graphicsContext) {
+    void drawArray() {
         logger.log(level, "");
-        graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
-        for (int i = 0; i < amount; i++) {
-            graphicsContext.fillRect(xPosition * i, yPosition - array[i] * height, width, height * array[i]);
+        clearGraphicsContext();
+        for (int i = 0; i < this.array.length; i++) {
+            drawOneColumn(i);
         }
     }
 
-    void drawArrayWithComparedRectangles(GraphicsContext graphicsContext, int index, int secondIndex) {
+    void drawArrayWithComparedRectangles(int index, int secondIndex) {
         logger.log(level, "");
-        graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
-        for (int i = 0; i < amount; i++) {
+        clearGraphicsContext();
+        for (int i = 0; i < this.array.length; i++) {
             if (i == secondIndex) {
                 graphicsContext.setFill(Color.BLUE);
             } else if (i == index) {
@@ -61,20 +59,28 @@ class RectangleDrawer {
             } else {
                 graphicsContext.setFill(Color.BLACK);
             }
-            graphicsContext.fillRect(xPosition * i, yPosition - array[i] * height, width, height * array[i]);
+            drawOneColumn(i);
         }
     }
 
-    void markSwappedRectangles(GraphicsContext graphicsContext, List<Integer> indexList) {
+    void markSwappedRectangles(List<Integer> indexList) {
         logger.log(level, "");
-        graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
-        for (int i = 0; i < amount; i++) {
+        clearGraphicsContext();
+        for (int i = 0; i < this.array.length; i++) {
             if (indexList.contains(i)) {
                 graphicsContext.setFill(Color.GREEN);
             } else {
                 graphicsContext.setFill(Color.BLACK);
             }
-            graphicsContext.fillRect(xPosition * i, yPosition - array[i] * height, width, height * array[i]);
+            drawOneColumn(i);
         }
+    }
+
+    private void clearGraphicsContext() {
+        graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
+    }
+
+    private void drawOneColumn(int i) {
+        graphicsContext.fillRect(xPosition * i, yPosition - array[i] * height, width, height * array[i]);
     }
 }

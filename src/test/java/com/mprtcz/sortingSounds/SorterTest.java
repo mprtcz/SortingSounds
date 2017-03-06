@@ -25,8 +25,8 @@ public class SorterTest {
     private List<Integer> arrayAsList = Arrays.asList(arrayToSort);
     private Canvas canvas = new Canvas();
     private GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-    private RectangleDrawer rectangleDrawer = new RectangleDrawer(arrayToSort);
-    private MyComparator myComparator = new MyComparator(graphicsContext, rectangleDrawer);
+    private RectangleDrawer rectangleDrawer = new RectangleDrawer(arrayToSort, graphicsContext);
+    private MyComparator myComparator = new MyComparator(rectangleDrawer);
 
 
     static{
@@ -57,7 +57,7 @@ public class SorterTest {
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
         myComparator.setArray(arrayToSort);
         myComparator.setLabel(new Label());
-        Sorter sorter = Sorter.getInstance(Sorter.SortType.QUICKSORT);
+        Sorter sorter = Sorter.getInstance(Sorter.SortType.QUICK_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
         sorter.sort(arrayToSort, myComparator);
@@ -76,7 +76,7 @@ public class SorterTest {
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
         myComparator.setArray(arrayToSort);
         myComparator.setLabel(new Label());
-        Sorter sorter = Sorter.getInstance(Sorter.SortType.ARRAYSORT);
+        Sorter sorter = Sorter.getInstance(Sorter.SortType.ARRAY_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
         sorter.sort(arrayToSort, myComparator);

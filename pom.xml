@@ -17,33 +17,35 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-			<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <executions>
-         <execution>
-            <phase>package</phase>
-            <goals>
-               <goal>jar</goal>
-            </goals>
-            <configuration>
-			<finalName>${project.artifactId}</finalName>
-			<archive>
-                    <manifest>
-                        <mainClass>com.mprtcz.sortingSounds.App</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-         </execution>
-      </executions>
-   </plugin> 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${project.artifactId}</finalName>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.mprtcz.sortingSounds.App</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-    <dependencies><dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
-        <scope>test</scope>
-    </dependency></dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

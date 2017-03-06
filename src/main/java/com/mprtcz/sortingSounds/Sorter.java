@@ -15,8 +15,8 @@ interface Sorter {
 
     enum SortType {
         BUBBLE_SORT("Bubble Sort"),
-        QUICKSORT("Quicksort"),
-        ARRAYSORT("Dual-Pivot Quicksort");
+        QUICK_SORT("Quicksort"),
+        ARRAY_SORT("Dual-Pivot Quicksort");
 
         private String value;
 
@@ -35,9 +35,9 @@ interface Sorter {
         switch (sortType) {
             case BUBBLE_SORT:
                 return new BubbleSorter();
-            case QUICKSORT:
+            case QUICK_SORT:
                 return new QuickSorter();
-            case ARRAYSORT:
+            case ARRAY_SORT:
                 return new ArraySorter();
             default:
                 return new BubbleSorter();
@@ -47,7 +47,7 @@ interface Sorter {
 
 class BubbleSorter implements Sorter {
     private final static Logger logger = Logger.getLogger(MyLogger.class.getName());
-    Level level = Level.CONFIG;
+    private Level level = Level.CONFIG;
 
     @Override
     public void sort(Integer[] array, Comparator<Integer> comparator) {
@@ -69,7 +69,7 @@ class BubbleSorter implements Sorter {
 
 class QuickSorter implements Sorter {
     private final static Logger logger = Logger.getLogger(MyLogger.class.getName());
-    Level level = Level.CONFIG;
+    private Level level = Level.CONFIG;
 
     @Override
     public void sort(Integer[] array, Comparator<Integer> comparator) {

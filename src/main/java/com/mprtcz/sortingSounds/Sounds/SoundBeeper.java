@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 /**
  * Created by Azet on 2016-05-02.
  */
-public class MyBeeper {
+public class SoundBeeper {
     private Clip clip;
 
     public void setUpSound(int framesPerWavelength) {
@@ -17,7 +17,7 @@ public class MyBeeper {
         }
     }
 
-    public void generateTone(int framesPerWavelengthValue)
+    private void generateTone(int framesPerWavelengthValue)
             throws LineUnavailableException {
         if (clip != null) {
             clip.stop();

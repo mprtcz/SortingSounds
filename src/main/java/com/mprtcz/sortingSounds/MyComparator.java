@@ -1,9 +1,8 @@
 package com.mprtcz.sortingSounds;
 
 import com.mprtcz.sortingSounds.MyLogger.MyLogger;
-import com.mprtcz.sortingSounds.Sounds.MyBeeper;
+import com.mprtcz.sortingSounds.Sounds.SoundBeeper;
 import javafx.application.Platform;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 
 import java.util.Comparator;
@@ -19,33 +18,27 @@ class MyComparator implements Comparator<Integer> {
     private final static Logger logger = Logger.getLogger(MyLogger.class.getName());
     private Level level = Level.CONFIG;
 
-    private GraphicsContext graphicsContext;
     private RectangleDrawer rectangleDrawer;
     private int sleepingTime;
-    private int firstIndex;
-    private int secondIndex;
     private Integer[] array;
-    private int classCalls = 0;
+    private int compareCalls = 0;
     private Label label;
     private ArrayComparator arrayComparator;
-    private MyBeeper myBeeper = new MyBeeper();
-    private MyBeeper myBeeper1 = new MyBeeper();
+    private SoundBeeper firstBeeper = new SoundBeeper();
+    private SoundBeeper secondBeeper = new SoundBeeper();
     private boolean playSound = false;
 
 
     @Override
     public int compare(Integer firstNumberToCompare, Integer secondNumberToCompare) {
-
-        markGreenRectangles();
         logger.log(level, "first number to compare: " + firstNumberToCompare +
                 " second number: " + secondNumberToCompare);
+        markSwappedRectangles();
+        ComparedIndexes comparedIndexes = findIndexesOfComparedRectangles(firstNumberToCompare, secondNumberToCompare);
+        markComparedRectangles(comparedIndexes.firstIndex, comparedIndexes.secondIndex);
 
-        findIndexesOfComparedRectangles(firstNumberToCompare, secondNumberToCompare);
-        markComparedRectangles(firstIndex, secondIndex);
-
-        this.classCalls++;
+        this.compareCalls++;
         updateLabel();
-
         if (firstNumberToCompare > secondNumberToCompare) {
             return 1;
         } else if (firstNumberToCompare < secondNumberToCompare) {
@@ -55,17 +48,16 @@ class MyComparator implements Comparator<Integer> {
         }
     }
 
-    MyComparator(GraphicsContext graphicsContext, RectangleDrawer rectangleDrawer) {
+    MyComparator(RectangleDrawer rectangleDrawer) {
         logger.log(level, "");
-        this.graphicsContext = graphicsContext;
         this.rectangleDrawer = rectangleDrawer;
-        this.classCalls = 0;
+        this.compareCalls = 0;
         this.arrayComparator = new ArrayComparator();
     }
 
     private void markComparedRectangles(int firstIndex, int secondIndex) {
         logger.log(level, "Starting new thread to draw compared rectangles");
-        Platform.runLater(() -> rectangleDrawer.drawArrayWithComparedRectangles(graphicsContext, firstIndex, secondIndex));
+        Platform.runLater(() -> rectangleDrawer.drawArrayWithComparedRectangles(firstIndex, secondIndex));
         try {
             logger.log(level, "playSound: " +playSound);
             if (playSound) {
@@ -85,10 +77,14 @@ class MyComparator implements Comparator<Integer> {
         }
     }
 
-    private void markGreenRectangles() {
+    private void markSwappedRectangles() {
         logger.log(level, "");
         List<Integer> indexList = arrayComparator.getChangedIndexes(array);
-        Platform.runLater(() -> rectangleDrawer.markSwappedRectangles(graphicsContext, indexList));
+        Platform.runLater(() -> rectangleDrawer.markSwappedRectangles(indexList));
+        putThreadToSleep();
+    }
+
+    private void putThreadToSleep() {
         try {
             logger.log(level, "Sleeping for " + sleepingTime + " ms");
             Thread.sleep(sleepingTime);
@@ -108,15 +104,17 @@ class MyComparator implements Comparator<Integer> {
         this.array = array;
     }
 
-    private void findIndexesOfComparedRectangles(Integer firstNumberToCompare, Integer secondNumberToCompare) {
+    private ComparedIndexes findIndexesOfComparedRectangles(Integer firstNumberToCompare, Integer secondNumberToCompare) {
         logger.log(level, "");
+        ComparedIndexes comparedIndexes = new ComparedIndexes();
         for (int i = 0; i < array.length; i++) {
             if (Objects.equals(array[i], firstNumberToCompare)) {
-                firstIndex = i;
+                comparedIndexes.firstIndex = i;
             } else if (Objects.equals(array[i], secondNumberToCompare)) {
-                secondIndex = i;
+                comparedIndexes.secondIndex = i;
             }
         }
+        return comparedIndexes;
     }
 
     void setLabel(Label label) {
@@ -125,8 +123,8 @@ class MyComparator implements Comparator<Integer> {
     }
 
     private void updateLabel() {
-        logger.log(level, "Updating calls label with number " + classCalls);
-        Platform.runLater(() -> label.setText("Comparator calls: " + classCalls));
+        logger.log(level, "Updating calls label with number " + compareCalls);
+        Platform.runLater(() -> label.setText("Comparator calls: " + compareCalls));
     }
 
     void setPlaySound(boolean playSound) {
@@ -135,17 +133,21 @@ class MyComparator implements Comparator<Integer> {
     }
 
     private void playSound(int firstIndex, int secondIndex) {
-        myBeeper = new MyBeeper();
-        myBeeper1 = new MyBeeper();
-        myBeeper.setUpSound(firstIndex + 10);
-        myBeeper.loopSound(true);
-        myBeeper1.setUpSound(secondIndex + 10);
-        myBeeper1.loopSound(true);
+        firstBeeper = new SoundBeeper();
+        secondBeeper = new SoundBeeper();
+        firstBeeper.setUpSound(firstIndex + 10);
+        firstBeeper.loopSound(true);
+        secondBeeper.setUpSound(secondIndex + 10);
+        secondBeeper.loopSound(true);
     }
 
     private void stopSound() {
-        myBeeper.loopSound(false);
-        myBeeper1.loopSound(false);
+        firstBeeper.loopSound(false);
+        secondBeeper.loopSound(false);
     }
 
+    private class ComparedIndexes {
+        private int firstIndex;
+        int secondIndex;
+    }
 }

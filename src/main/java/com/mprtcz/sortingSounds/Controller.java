@@ -100,22 +100,20 @@ public class Controller {
         isSorted = false;
 
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        rectangleDrawer = new RectangleDrawer(array);
-        rectangleDrawer.setCanvasHeightAndWidth(canvas.getHeight(), canvas.getWidth());
+        rectangleDrawer = new RectangleDrawer(array, canvas);
 
         graphicsContext.setFill(Color.BLACK);
 
-        myComparator = new MyComparator(graphicsContext, rectangleDrawer);
+        myComparator = new MyComparator(rectangleDrawer);
         myComparator.setSleepingTime(sleepingTime);
         myComparator.setArray(array);
         myComparator.setLabel(callsLabel);
 
         if (sortingChoiceBox.getItems().size() == 0) {
-            this.sortingChoiceBox.getItems().addAll(Sorter.SortType.BUBBLE_SORT,
-                    Sorter.SortType.QUICKSORT, Sorter.SortType.ARRAYSORT);
+            this.sortingChoiceBox.getItems().addAll(Sorter.SortType.values());
             this.sortingChoiceBox.getSelectionModel().select(Sorter.SortType.BUBBLE_SORT);
         }
 
-        Platform.runLater(() -> rectangleDrawer.drawArrayWithComparedRectangles(graphicsContext));
+        Platform.runLater(() -> rectangleDrawer.drawArray());
     }
 }
