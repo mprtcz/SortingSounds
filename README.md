@@ -12,17 +12,17 @@ In the botton there is a label which informs the user about how many comparisons
 
 **An example of the application running Bubble sort algorithm:**
 
-![.gif, 1MB](https://media.giphy.com/media/l41YAOAbwr23GKhRm/giphy.gif)
+![.gif, 1MB](https://media.giphy.com/media/3og0ICUlBTNtMIFA52/source.gif)
 
 
 **Quicksort:**
 
-![.gif, 921kB](https://media.giphy.com/media/l41YaFAS0dmt7dxW8/giphy.gif)
+![.gif, 921kB](https://media.giphy.com/media/3og0IuDILvMqW36xpK/source.gif)
 
 
 **Dual-Pivot Quicksort implemented in Java api as Arrays.sort() method:**
 
-![.gif, 1,05MB](https://media.giphy.com/media/3oEjHQAh4VOiEZXeKI/giphy.gif)
+![.gif, 1,05MB](https://media.giphy.com/media/3og0IUVLqcwg5N4PN6/source.gif)
 
 
 ---
