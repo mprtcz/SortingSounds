@@ -20,6 +20,7 @@ class RectangleDrawer {
     private double yPosition;
     private double width;
     private double height;
+    private Color[] colorsPalette;
     private Integer[] array;
     private GraphicsContext graphicsContext;
     private Canvas canvas;
@@ -30,6 +31,7 @@ class RectangleDrawer {
         this.graphicsContext = canvas.getGraphicsContext2D();
         this.array = array;
         calculateCanvasHeightAndWidth();
+        generateColorPalette();
     }
 
     private void calculateCanvasHeightAndWidth() {
@@ -44,6 +46,7 @@ class RectangleDrawer {
         logger.log(level, "");
         clearGraphicsContext();
         for (int i = 0; i < this.array.length; i++) {
+            graphicsContext.setFill(this.colorsPalette[array[i] - 1]);
             drawOneColumn(i);
         }
     }
@@ -52,12 +55,10 @@ class RectangleDrawer {
         logger.log(level, "");
         clearGraphicsContext();
         for (int i = 0; i < this.array.length; i++) {
-            if (i == secondIndex) {
-                graphicsContext.setFill(Color.BLUE);
-            } else if (i == index) {
-                graphicsContext.setFill(Color.BLUE);
-            } else {
+            if (i == secondIndex || i == index) {
                 graphicsContext.setFill(Color.BLACK);
+            } else {
+                graphicsContext.setFill(this.colorsPalette[array[i] - 1]);
             }
             drawOneColumn(i);
         }
@@ -68,9 +69,9 @@ class RectangleDrawer {
         clearGraphicsContext();
         for (int i = 0; i < this.array.length; i++) {
             if (indexList.contains(i)) {
-                graphicsContext.setFill(Color.GREEN);
+                graphicsContext.setFill(Color.GRAY);
             } else {
-                graphicsContext.setFill(Color.BLACK);
+                graphicsContext.setFill(this.colorsPalette[array[i] - 1]);
             }
             drawOneColumn(i);
         }
@@ -82,5 +83,12 @@ class RectangleDrawer {
 
     private void drawOneColumn(int i) {
         graphicsContext.fillRect(xPosition * i, yPosition - array[i] * height, width, height * array[i]);
+    }
+
+    private void generateColorPalette() {
+        this.colorsPalette = new Color[array.length];
+        for (int i = 0; i < array.length; i++) {
+            colorsPalette[i] = Color.hsb(((float) i / (float) array.length) * 360, 0.85f, 1.0f);
+        }
     }
 }
