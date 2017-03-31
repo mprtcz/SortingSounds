@@ -1,5 +1,5 @@
 # SortingSounds
-Java application which visualize three different sorting algorithms: bubble sort, quicksort and array sort, optionally playing a different tone to every comparison it makes while sorting.
+Java application which visualizes three different sorting algorithms: bubble sort, quicksort and array sort, optionally playing a different tone to every comparison it makes while sorting.
 
 The application contains 4 controls and a button responsible for the start of visualization.
 * Sorting Method ChoiceBox allowing to choose between different sorting algorithms to visualize
@@ -7,7 +7,7 @@ The application contains 4 controls and a button responsible for the start of vi
 * Sample size ChoiceBox which lets the user choose different sizes of an array to be sorted
 * Play Sound CheckBox responsible for determining if the sound should be played during visualization
 
-In the botton there is a label which informs the user about how many comparisons chosen algorithm had made during sorting. 
+In the botton there is a label which informs the user about how many comparisons chosen algorithm had made during sorting.
 
 
 **An example of the application running Bubble sort algorithm:**
