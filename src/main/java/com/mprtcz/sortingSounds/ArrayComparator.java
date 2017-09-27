@@ -10,21 +10,23 @@ import java.util.Objects;
  */
 class ArrayComparator {
 
-    private Integer[] firstArray = null;
+    private Integer[] previousArray = null;
 
-    List<Integer> getChangedIndexes(Integer[] secondArray) {
+    List<Integer> getChangedIndexes(Integer[] changedArray) {
         List<Integer> changedIndexes = new ArrayList<>();
-        if (firstArray != null) {
-            if (firstArray.length == secondArray.length) {
-                for (int i = 0; i < firstArray.length; i++) {
-                    if (!Objects.equals(firstArray[i], secondArray[i])) {
-                        changedIndexes.add(i);
-                    }
+        if (validateArrays(previousArray, changedArray)) {
+            for (int i = 0; i < previousArray.length; i++) {
+                if (!Objects.equals(previousArray[i], changedArray[i])) {
+                    changedIndexes.add(i);
                 }
             }
         }
-        firstArray = Arrays.copyOf(secondArray, secondArray.length);
+        previousArray = Arrays.copyOf(changedArray, changedArray.length);
 
         return changedIndexes;
+    }
+
+    private boolean validateArrays(Integer[] previousArray, Integer[] changedArray) {
+        return previousArray != null && (previousArray.length == changedArray.length);
     }
 }

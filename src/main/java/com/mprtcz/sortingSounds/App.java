@@ -21,7 +21,7 @@ public class App extends javafx.application.Application {
     public void start(Stage window) throws Exception{
         MyLogger.initializeLogger();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));
         System.out.println(loader.getLocation());
         Parent root = loader.load();
 

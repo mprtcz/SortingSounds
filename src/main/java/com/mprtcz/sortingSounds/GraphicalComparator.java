@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * Created by Azet on 2016-04-02.
  */
-class MyComparator implements Comparator<Integer> {
+class GraphicalComparator implements Comparator<Integer> {
     private final static Logger logger = Logger.getLogger(MyLogger.class.getName());
     private Level level = Level.CONFIG;
 
@@ -48,7 +48,7 @@ class MyComparator implements Comparator<Integer> {
         }
     }
 
-    MyComparator(RectangleDrawer rectangleDrawer) {
+    GraphicalComparator(RectangleDrawer rectangleDrawer) {
         logger.log(level, "");
         this.rectangleDrawer = rectangleDrawer;
         this.compareCalls = 0;
@@ -128,7 +128,7 @@ class MyComparator implements Comparator<Integer> {
     }
 
     void setPlaySound(boolean playSound) {
-        System.out.println("Setting playSound true");
+        logger.log(level, "Setting playSound true");
         this.playSound = playSound;
     }
 

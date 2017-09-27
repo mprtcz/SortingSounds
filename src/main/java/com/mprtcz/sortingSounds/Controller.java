@@ -34,7 +34,7 @@ public class Controller {
     private Integer[] choiceArray = {10, 30, 50, 100, 150};
     private boolean isSorted = false;
     private int sleepingTime;
-    private MyComparator myComparator;
+    private GraphicalComparator graphicalComparator;
 
 
     public void onStartButtonCLicked() {
@@ -54,10 +54,10 @@ public class Controller {
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.setFill(Color.BLUE);
 
-        myComparator.setPlaySound(playSoundCheckbox.isSelected());
+        graphicalComparator.setPlaySound(playSoundCheckbox.isSelected());
 
         Sorter sorter = Sorter.sorterFactory(sortingChoiceBox.getValue());
-        sorter.sort(array, myComparator);
+        sorter.sort(array, graphicalComparator);
 
         startButton.setDisable(false);
         sizeChooser.setDisable(false);
@@ -79,7 +79,7 @@ public class Controller {
 
         speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             sleepingTime = (int) (speedSlider.getValue());
-            myComparator.setSleepingTime(sleepingTime);
+            graphicalComparator.setSleepingTime(sleepingTime);
         });
     }
 
@@ -104,10 +104,10 @@ public class Controller {
 
         graphicsContext.setFill(Color.BLACK);
 
-        myComparator = new MyComparator(rectangleDrawer);
-        myComparator.setSleepingTime(sleepingTime);
-        myComparator.setArray(array);
-        myComparator.setLabel(callsLabel);
+        graphicalComparator = new GraphicalComparator(rectangleDrawer);
+        graphicalComparator.setSleepingTime(sleepingTime);
+        graphicalComparator.setArray(array);
+        graphicalComparator.setLabel(callsLabel);
 
         if (sortingChoiceBox.getItems().size() == 0) {
             this.sortingChoiceBox.getItems().addAll(Sorter.SortType.values());

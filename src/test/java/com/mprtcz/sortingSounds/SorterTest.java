@@ -25,8 +25,8 @@ public class SorterTest {
     private List<Integer> arrayAsList = Arrays.asList(arrayToSort);
     private Canvas canvas = new Canvas();
     private GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-    private RectangleDrawer rectangleDrawer = new RectangleDrawer(arrayToSort, graphicsContext);
-    private MyComparator myComparator = new MyComparator(rectangleDrawer);
+    private RectangleDrawer rectangleDrawer = new RectangleDrawer(arrayToSort, canvas);
+    private GraphicalComparator graphicalComparator = new GraphicalComparator(rectangleDrawer);
 
 
     static{
@@ -36,12 +36,12 @@ public class SorterTest {
     @Test
     public void bubbleSorterTest(){
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
-        myComparator.setArray(arrayToSort);
-        myComparator.setLabel(new Label());
+        graphicalComparator.setArray(arrayToSort);
+        graphicalComparator.setLabel(new Label());
         Sorter sorter = Sorter.sorterFactory(Sorter.SortType.BUBBLE_SORT);
         logger.log(level, "Sorter: " +sorter.getClass());
         logger.log(level, "Array to sort: " +arrayAsList.toString());
-        sorter.sort(arrayToSort, myComparator);
+        sorter.sort(arrayToSort, graphicalComparator);
         boolean isSorted = true;
         for(int i = 0; i < arrayToSort.length-1; i++){
             if(!(arrayToSort[i] <= arrayToSort[i+1])){
@@ -55,12 +55,12 @@ public class SorterTest {
     @Test
     public void QuickSorterTest(){
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
-        myComparator.setArray(arrayToSort);
-        myComparator.setLabel(new Label());
+        graphicalComparator.setArray(arrayToSort);
+        graphicalComparator.setLabel(new Label());
         Sorter sorter = Sorter.sorterFactory(Sorter.SortType.QUICK_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
-        sorter.sort(arrayToSort, myComparator);
+        sorter.sort(arrayToSort, graphicalComparator);
         boolean isSorted = true;
         for(int i = 0; i < arrayToSort.length-1; i++){
             if(!(arrayToSort[i] <= arrayToSort[i+1])){
@@ -74,12 +74,12 @@ public class SorterTest {
     @Test
     public void ArraySorterTest(){
         PlatformImpl.startup(() -> {}); //starting the FXApplication thread
-        myComparator.setArray(arrayToSort);
-        myComparator.setLabel(new Label());
+        graphicalComparator.setArray(arrayToSort);
+        graphicalComparator.setLabel(new Label());
         Sorter sorter = Sorter.sorterFactory(Sorter.SortType.ARRAY_SORT);
         logger.log(level, "Array to sort: " +arrayAsList.toString());
         logger.log(level, "Sorter: " +sorter.getClass());
-        sorter.sort(arrayToSort, myComparator);
+        sorter.sort(arrayToSort, graphicalComparator);
         boolean isSorted = true;
         for(int i = 0; i < arrayToSort.length-1; i++){
             if(!(arrayToSort[i] <= arrayToSort[i+1])){
