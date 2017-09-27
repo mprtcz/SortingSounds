@@ -33,8 +33,11 @@ class GraphicalComparator implements Comparator<Integer> {
     public int compare(Integer firstNumberToCompare, Integer secondNumberToCompare) {
         logger.log(level, "first number to compare: " + firstNumberToCompare +
                 " second number: " + secondNumberToCompare);
+        System.out.println("first number to compare: " + firstNumberToCompare +
+                " second number: " + secondNumberToCompare);
         markSwappedRectangles();
         ComparedIndexes comparedIndexes = findIndexesOfComparedRectangles(firstNumberToCompare, secondNumberToCompare);
+        System.out.println("comparedIndexes = " + comparedIndexes);
         markComparedRectangles(comparedIndexes.firstIndex, comparedIndexes.secondIndex);
 
         this.compareCalls++;
@@ -105,7 +108,6 @@ class GraphicalComparator implements Comparator<Integer> {
     }
 
     private ComparedIndexes findIndexesOfComparedRectangles(Integer firstNumberToCompare, Integer secondNumberToCompare) {
-        logger.log(level, "");
         ComparedIndexes comparedIndexes = new ComparedIndexes();
         for (int i = 0; i < array.length; i++) {
             if (Objects.equals(array[i], firstNumberToCompare)) {
@@ -147,7 +149,7 @@ class GraphicalComparator implements Comparator<Integer> {
     }
 
     private class ComparedIndexes {
-        private int firstIndex;
-        int secondIndex;
+        private int firstIndex = -1;
+        int secondIndex = -1;
     }
 }

@@ -71,7 +71,8 @@ public class RandomArrayGeneratorTest {
                 intArray[i] = i;
             }
 
-            Integer[] resultArray = RandomArrayGenerator.fromListToArray(intList);
+            Integer[] resultArray = new Integer[intList.size()];
+            intList.toArray(resultArray);
 
             boolean isNumberEqual = true;
 
@@ -97,8 +98,8 @@ public class RandomArrayGeneratorTest {
                 intList.add(i);
                 intArray[i] = i-1;
             }
-
-            Integer[] resultArray = RandomArrayGenerator.fromListToArray(intList);
+            Integer[] resultArray = new Integer[intList.size()];
+            intList.toArray(resultArray);
 
             boolean isNumberEqual = false;
 

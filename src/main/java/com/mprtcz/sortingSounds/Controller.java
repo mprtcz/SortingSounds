@@ -21,9 +21,8 @@ public class Controller {
     public Canvas canvas;
     public Slider speedSlider;
     public Button startButton;
-    public Label label;
     public ChoiceBox<Integer> sizeChooser;
-    public ChoiceBox<Sorter.SortType> sortingChoiceBox;
+    public ChoiceBox<Sorter> sortingChoiceBox;
     public BorderPane borderPane;
     public Label callsLabel;
     public CheckBox playSoundCheckbox;
@@ -56,7 +55,7 @@ public class Controller {
 
         graphicalComparator.setPlaySound(playSoundCheckbox.isSelected());
 
-        Sorter sorter = Sorter.sorterFactory(sortingChoiceBox.getValue());
+        Sorter sorter = sortingChoiceBox.getValue();
         sorter.sort(array, graphicalComparator);
 
         startButton.setDisable(false);
@@ -110,8 +109,8 @@ public class Controller {
         graphicalComparator.setLabel(callsLabel);
 
         if (sortingChoiceBox.getItems().size() == 0) {
-            this.sortingChoiceBox.getItems().addAll(Sorter.SortType.values());
-            this.sortingChoiceBox.getSelectionModel().select(Sorter.SortType.BUBBLE_SORT);
+            this.sortingChoiceBox.getItems().addAll(Sorter.values());
+            this.sortingChoiceBox.getSelectionModel().select(Sorter.BUBBLE_SORT);
         }
 
         Platform.runLater(() -> rectangleDrawer.drawArray());
