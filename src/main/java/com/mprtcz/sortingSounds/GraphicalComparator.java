@@ -11,6 +11,8 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static java.lang.Integer.signum;
+
 /**
  * Created by Azet on 2016-04-02.
  */
@@ -35,18 +37,11 @@ class GraphicalComparator implements Comparator<Integer> {
                 " second number: " + secondNumberToCompare);
         markSwappedRectangles();
         ComparedIndexes comparedIndexes = findIndexesOfComparedRectangles(firstNumberToCompare, secondNumberToCompare);
-        System.out.println("comparedIndexes = " + comparedIndexes);
         markComparedRectangles(comparedIndexes.firstIndex, comparedIndexes.secondIndex);
 
         this.compareCalls++;
         updateLabel();
-        if (firstNumberToCompare > secondNumberToCompare) {
-            return 1;
-        } else if (firstNumberToCompare < secondNumberToCompare) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return signum(firstNumberToCompare - secondNumberToCompare);
     }
 
     GraphicalComparator(RectangleDrawer rectangleDrawer) {
