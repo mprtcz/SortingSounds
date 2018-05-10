@@ -20,6 +20,6 @@ class RandomArrayGenerator {
         logger.log(level, "");
         List<Integer> orderedInts = IntStream.rangeClosed(1, size).boxed().collect(Collectors.toList());
         Collections.shuffle(orderedInts);
-        return orderedInts.toArray(new Integer[orderedInts.size()]);
+        return orderedInts.toArray(new Integer[0]);
     }
 }

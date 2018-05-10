@@ -55,7 +55,7 @@ class GraphicalComparator implements Comparator<Integer> {
         logger.log(level, "Starting new thread to draw compared rectangles");
         Platform.runLater(() -> rectangleDrawer.drawArrayWithComparedRectangles(firstIndex, secondIndex));
         try {
-            logger.log(level, "playSound: " +playSound);
+            logger.log(level, "playSound: " + playSound);
             if (playSound) {
                 logger.log(level, "Playing sound for indexes: " + firstIndex + " " + secondIndex);
                 playSound(firstIndex, secondIndex);
@@ -108,6 +108,9 @@ class GraphicalComparator implements Comparator<Integer> {
             } else if (Objects.equals(array[i], secondNumberToCompare)) {
                 comparedIndexes.secondIndex = i;
             }
+            if(comparedIndexes.hasBothValues()) {
+                break;
+            }
         }
         return comparedIndexes;
     }
@@ -144,5 +147,9 @@ class GraphicalComparator implements Comparator<Integer> {
     private class ComparedIndexes {
         private int firstIndex = -1;
         int secondIndex = -1;
+
+        boolean hasBothValues() {
+            return firstIndex != -1 && secondIndex != -1;
+        }
     }
 }

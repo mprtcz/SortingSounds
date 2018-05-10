@@ -108,7 +108,7 @@ public class Controller {
         graphicalComparator.setArray(array);
         graphicalComparator.setLabel(callsLabel);
 
-        if (sortingChoiceBox.getItems().size() == 0) {
+        if (sortingChoiceBox.getItems().isEmpty()) {
             this.sortingChoiceBox.getItems().addAll(Sorter.values());
             this.sortingChoiceBox.getSelectionModel().select(Sorter.BUBBLE_SORT);
         }
