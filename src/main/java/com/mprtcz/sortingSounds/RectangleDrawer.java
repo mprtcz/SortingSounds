@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.IntStream;
 
 /**
  * Created by Azet on 2016-04-01.
@@ -45,10 +46,10 @@ class RectangleDrawer {
     void drawArray() {
         logger.log(level, "");
         clearGraphicsContext();
-        for (int i = 0; i < this.array.length; i++) {
-            graphicsContext.setFill(this.colorsPalette[array[i] - 1]);
-            drawOneColumn(i);
-        }
+        IntStream.range(0, this.array.length).forEach(index -> {
+            graphicsContext.setFill(colorsPalette[array[index] - 1]);
+            drawOneColumn(index);
+        });
     }
 
     void drawArrayWithComparedRectangles(int index, int secondIndex) {
